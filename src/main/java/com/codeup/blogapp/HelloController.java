@@ -27,5 +27,8 @@ public class HelloController {
         return "Hello, " + name + "!";
     }
 
-
+    @GetMapping("/home")
+    public String welcome() {
+        return "home";
+    }
 }
