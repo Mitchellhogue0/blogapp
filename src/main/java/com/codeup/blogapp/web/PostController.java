@@ -39,4 +39,7 @@ public class PostController {
         System.out.println(post.getTitle());
         System.out.println(post.getContent());
     }
+
+    @DeleteMapping("{id}")
+    private void deletePost (@PathVariable Long id) {}
 }
