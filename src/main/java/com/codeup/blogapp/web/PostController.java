@@ -28,6 +28,9 @@ public class PostController {
             return null;
         }
     }
-
-
+    @PostMapping
+    private void createPost(@RequestBody Post newPost) {
+        System.out.println(newPost.getTitle());
+        System.out.println(newPost.getContent());
+    }
 }
