@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.PrimitiveIterator;
 
 @RestController
-@RequestMapping(value = "/api/posts", headers="Accept=application/json")
+@RequestMapping(value = "/api/posts", headers = "Accept=application/json")
 public class PostController {
 
     @GetMapping
-    private List<Post> getPosts(){
-        return new ArrayList<Post>(){{
+    private List<Post> getPosts() {
+        return new ArrayList<Post>() {{
             add(new Post(1L, "new post", "this is some content"));
             add(new Post(2L, "newer post", "this is somemore content"));
             add(new Post(3L, "newest post", "this is somemost content"));
@@ -21,13 +21,14 @@ public class PostController {
     }
 
     @GetMapping("{id}")
-    private Post getPostById (@PathVariable Long id) {
+    private Post getPostById(@PathVariable Long id) {
         if (id == 1) {
             return new Post(1L, "new post", "this is some content");
         } else {
             return null;
         }
     }
+
     @PostMapping
     private void createPost(@RequestBody Post newPost) {
         System.out.println(newPost.getTitle());
@@ -41,5 +42,7 @@ public class PostController {
     }
 
     @DeleteMapping("{id}")
-    private void deletePost (@PathVariable Long id) {}
+    private void deletePost(@PathVariable Long id) {
+    }
+
 }
