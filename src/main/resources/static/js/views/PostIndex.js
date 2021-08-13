@@ -1,3 +1,5 @@
+import createView from "../createView.js";
+
 export default function PostIndex(props) {
     return `
         <header>
@@ -29,39 +31,30 @@ export default function PostIndex(props) {
 
 export function PostsEvent() {
     //TODO: add event listeners for create/edit/delete, get data, send fetch
-    $("#create-btn").click(function (){
-        let title = $("#create-post-title").val();
-        let content = $("#create-post-content").val();
-        console.log(title)
-        console.log(content)
+    $("#create-btn").click(function () {
+        let post = {
+            title: $("#create-post-title").val(),
+            content: $("#create-post-content").val()
+        };
+        console.log(post)
 
-        fetch("http://localhost:8080/posts", {
-            method: 'POST',
+        let request = {
+            method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
-            redirect: 'follow',
-            body: JSON.stringify({
-                "title": title,
-                "content": content
-            })
-        }).then(function(response) {
-            return response.json();
-        }).then(function(data) {
-            console.log(data);
+            body: JSON.stringify(post)
+        }
+
+        fetch("http://localhost:8080/posts", request)
+            .then(res => {
+                console.log(res.status)
+                createView("/posts")
+            }).catch(error => {
+            console.log(error);
+            createView("/posts");
         });
     });
 
-    fetch("http://localhost:8080/posts", {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        redirect: 'follow'
-    }).then(function(response) {
-        return response.json();
-    }).then(function(data) {
-        console.log(data);
-    });
 
 }
