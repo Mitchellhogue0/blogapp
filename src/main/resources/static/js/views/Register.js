@@ -1,6 +1,6 @@
 export default function Login(props) {
     return `<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <title>Register</title>
@@ -10,10 +10,6 @@ export default function Login(props) {
 
 <h3>Sign up today!</h3>
 <form id="sign-form">
-    <label for="sign-name1">First name</label>
-     <input id="sign-name1" name="first-name" type="text"/>
-     <label for="sign-name2">Last name</label>
-     <input id="sign-name2" name="last-name" type="text"/>
      <label for="sign-email">Email</label>
      <input id="sign-email" name="email" type="text"/>
     <label for="sign-username">Username</label>

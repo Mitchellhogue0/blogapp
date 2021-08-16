@@ -5,6 +5,33 @@ import createView from "./createView.js";
  * Adds a login event to allow the user to initially obtain a new OAuth2.0 token
  * On a successful response, sets the tokens into storage and redirects to the root
  */
+
+
+export function RegisterEvent(){
+    $("#sign-btn").click(function () {
+        let obj = {
+            email: $("#sign-email").val(),
+            username: $("#sign-username").val(),
+            password: $("#sign-password").val()
+        }
+        let request = {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(obj)
+        };
+
+        fetch("http://localhost:8080/api/users", request)
+            .then((response) => {
+                console.log(response.status)
+                createView("/");
+            });
+    })
+}
+
+
 export default function addLoginEvent() {
     document.querySelector("#login-btn").addEventListener("click", function () {
         let obj = {
