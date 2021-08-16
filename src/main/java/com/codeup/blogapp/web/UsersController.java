@@ -1,5 +1,6 @@
 package com.codeup.blogapp.web;
 
+import com.codeup.blogapp.data.Post;
 import com.codeup.blogapp.data.User;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +26,7 @@ public class UsersController {
         System.out.println(newUser.getUsername());
         System.out.println(newUser.getEmail());
         System.out.println(newUser.getPassword());
+        System.out.println(newUser.getRole());
     }
 
     @PutMapping("{id}")
@@ -33,9 +35,19 @@ public class UsersController {
         System.out.println(user.getUsername());
         System.out.println(user.getEmail());
         System.out.println(user.getPassword());
+        System.out.println(user.getRole());
     }
 
     @DeleteMapping("{id}")
     private void deleteUser(@PathVariable Long id) {
+    }
+
+    @GetMapping("{id}")
+    private User findById(@PathVariable Long id) {
+        if (id == 1) {
+            return new User();
+        } else {
+            return null;
+        }
     }
 }
