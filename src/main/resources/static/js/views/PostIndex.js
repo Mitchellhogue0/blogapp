@@ -49,7 +49,7 @@ export function PostsEvent() {
             body: JSON.stringify(post)
         }
 
-        fetch("http://localhost:8080/posts", request)
+        fetch("http://localhost:8080/api/posts", request)
             .then(res => {
                 console.log(res.status)
                 createView("/posts")
