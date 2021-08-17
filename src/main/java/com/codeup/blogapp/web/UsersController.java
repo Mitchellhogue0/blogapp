@@ -63,8 +63,14 @@ public class UsersController {
                 email.equals(t.getEmail())).findFirst().orElse(null);
     }
 
-    @GetMapping("{id}/updatePassword")
+    @PutMapping("{id}/updatePassword")
     private void updatePassword( @PathVariable Long id, @RequestParam(required = false) String oldPassword, @Valid @Size(min = 3) @RequestParam String newPassword) {
+        System.out.println(oldPassword);
+        System.out.println(newPassword);
+    }
+
+    @PutMapping("{username}/updatePassword")
+    private void updatePassword(@RequestParam String username, @RequestParam(required = false) String oldPassword, @Valid @Size(min = 3) @RequestParam String newPassword) {
         System.out.println(oldPassword);
         System.out.println(newPassword);
     }

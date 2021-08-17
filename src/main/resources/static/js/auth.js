@@ -27,23 +27,9 @@ export function ChangePasswordEvent() {
         fetch(`http://localhost:8080/api/users/findByUsername?username=${obj.username}`, request1)
             .then((response) => {
                 console.log(response)
-                getId(response.json())
                 createView("/");
 
             });
-
-
-    })
-}
-
-function getId(username) {
-    $("#pass-btn").click(function () {
-        let obj = {
-            
-            username: $("#pass-username").val(),
-            oldPassword: $("#pass-password-old").val(),
-            newPassword: $("#pass-password-new").val()
-        }
 
         let request2 = {
             method: "PUT",
@@ -54,11 +40,26 @@ function getId(username) {
             body: JSON.stringify(obj)
         };
 
-        fetch(`http://localhost:8080/api/users/${username.id}/updatePassword?oldPassword=${obj.oldPassword}&newPassword=${obj.newPassword}`, request2)
+        fetch(`http://localhost:8080/api/users/{username}/updatePassword?username=${obj.username}&oldPassword=${obj.oldPassword}&newPassword=${obj.newPassword}`, request2)
             .then((response) => {
                 console.log(response)
                 createView("/");
             });
+
+
+    })
+}
+
+function getId(username) {
+    $("#pass-btn").click(function () {
+        let obj = {
+
+            username: $("#pass-username").val(),
+            oldPassword: $("#pass-password-old").val(),
+            newPassword: $("#pass-password-new").val()
+        }
+
+
     })
 }
 
