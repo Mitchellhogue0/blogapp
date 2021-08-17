@@ -24,6 +24,7 @@ export default function PostIndex(props) {
                 ${props.posts.map(post =>
         `<h3 class="post-title" data-id="${post.id}">${post.title}</h3>
                 <h4>${post.content}</h4>
+                <p>Posted by: ${post.user.username}</p>
                 <label for="edit-title">Edit Title</label>
                 <input type="text" class="edit-title" value="${post.title}" readonly>
                 <label for="edit-content">Edit Content</label>

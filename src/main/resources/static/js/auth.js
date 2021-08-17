@@ -26,7 +26,7 @@ export function ChangePasswordEvent() {
 
         fetch(`http://localhost:8080/api/users/findByUsername?username=${obj.username}`, request1)
             .then((response) => {
-                console.log(response)
+                console.log(response.status)
                 createView("/");
 
             });
@@ -42,7 +42,7 @@ export function ChangePasswordEvent() {
 
         fetch(`http://localhost:8080/api/users/{username}/updatePassword?username=${obj.username}&oldPassword=${obj.oldPassword}&newPassword=${obj.newPassword}`, request2)
             .then((response) => {
-                console.log(response)
+                console.log(response.status)
                 createView("/");
             });
 
@@ -50,18 +50,6 @@ export function ChangePasswordEvent() {
     })
 }
 
-function getId(username) {
-    $("#pass-btn").click(function () {
-        let obj = {
-
-            username: $("#pass-username").val(),
-            oldPassword: $("#pass-password-old").val(),
-            newPassword: $("#pass-password-new").val()
-        }
-
-
-    })
-}
 
 export function RegisterEvent(){
     $("#sign-btn").click(function () {

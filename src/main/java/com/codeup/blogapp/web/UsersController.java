@@ -13,12 +13,21 @@ import java.util.List;
 @RequestMapping(value = "/api/users", headers = "Accept=application/json")
 public class UsersController {
 
+    User user = new User(1L, "testy", "testy@test.com", "test123", null);
+
+    List<Post> posts = new ArrayList<Post>() {{
+        add(new Post(1L, "new post", "this is some content", user));
+        add(new Post(2L, "newer post", "this is somemore content", user));
+        add(new Post(3L, "newest post", "this is somemost content", user));
+    }};
+
+
     @GetMapping
     private List<User> getUsers() {
         return new ArrayList<User>() {{
-            add(new User(1L, "username1", "email1@email.com", "password1"));
-            add(new User(2L, "username2", "email2@email.com", "password2"));
-            add(new User(3L, "username3", "email3@email.com", "password3"));
+            add(new User(1L, "username1", "email1@email.com", "password1", posts));
+            add(new User(2L, "username2", "email2@email.com", "password2", posts));
+            add(new User(3L, "username3", "email3@email.com", "password3", posts));
         }};
     }
 
