@@ -4,6 +4,8 @@ import com.codeup.blogapp.data.Post;
 import com.codeup.blogapp.data.User;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,10 +46,26 @@ public class UsersController {
 
     @GetMapping("{id}")
     private User findById(@PathVariable Long id) {
-        if (id == 1) {
-            return new User();
-        } else {
-            return null;
-        }
+        return getUsers().stream()
+                .filter(t ->
+                 id.equals(t.getId())).findFirst().orElse(null);
+    }
+
+    @GetMapping("/findByUsername")
+    private User findByUsername(@RequestParam String username) {
+        return getUsers().stream().filter(t ->
+                username.equals(t.getUsername())).findFirst().orElse(null);
+    }
+
+    @GetMapping("/findByEmail")
+    private User findByEmail(@RequestParam String email) {
+        return getUsers().stream().filter(t ->
+                email.equals(t.getEmail())).findFirst().orElse(null);
+    }
+
+    @GetMapping("{id}/updatePassword")
+    private void updatePassword( @PathVariable Long id, @RequestParam(required = false) String oldPassword, @Valid @Size(min = 3) @RequestParam String newPassword) {
+        System.out.println(oldPassword);
+        System.out.println(newPassword);
     }
 }
