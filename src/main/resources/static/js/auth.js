@@ -7,6 +7,61 @@ import createView from "./createView.js";
  */
 
 
+export function ChangePasswordEvent() {
+    $("#pass-btn").click(function () {
+        let obj = {
+
+            email: $("#pass-email").val(),
+            username: $("#pass-username").val(),
+            oldPassword: $("#pass-password-old").val(),
+            newPassword: $("#pass-password-new").val()
+        }
+        let request1 = {
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                "Content-Type": "application/json"
+            }
+        };
+
+        fetch(`http://localhost:8080/api/users/findByUsername?username=${obj.username}`, request1)
+            .then((response) => {
+                console.log(response)
+                getId(response.json())
+                createView("/");
+
+            });
+
+
+    })
+}
+
+function getId(username) {
+    $("#pass-btn").click(function () {
+        let obj = {
+            
+            username: $("#pass-username").val(),
+            oldPassword: $("#pass-password-old").val(),
+            newPassword: $("#pass-password-new").val()
+        }
+
+        let request2 = {
+            method: "PUT",
+            headers: {
+                'Accept': 'application/json',
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(obj)
+        };
+
+        fetch(`http://localhost:8080/api/users/${username.id}/updatePassword?oldPassword=${obj.oldPassword}&newPassword=${obj.newPassword}`, request2)
+            .then((response) => {
+                console.log(response)
+                createView("/");
+            });
+    })
+}
+
 export function RegisterEvent(){
     $("#sign-btn").click(function () {
         let obj = {
