@@ -16,20 +16,20 @@ export function ChangePasswordEvent() {
             oldPassword: $("#pass-password-old").val(),
             newPassword: $("#pass-password-new").val()
         }
-        let request1 = {
-            method: "GET",
-            headers: {
-                'Accept': 'application/json',
-                "Content-Type": "application/json"
-            }
-        };
-
-        fetch(`http://localhost:8080/api/users/findByUsername?username=${obj.username}`, request1)
-            .then((response) => {
-                console.log(response.status)
-                createView("/");
-
-            });
+        // let request1 = {
+        //     method: "GET",
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         "Content-Type": "application/json"
+        //     }
+        // };
+        //
+        // fetch(`http://localhost:8080/api/users/findByUsername?username=${obj.username}`, request1)
+        //     .then((response) => {
+        //         console.log(response.status)
+        //         createView("/");
+        //
+        //     });
 
         let request2 = {
             method: "PUT",

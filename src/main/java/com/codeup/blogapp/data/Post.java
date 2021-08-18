@@ -7,6 +7,8 @@ public class Post {
     private String content;
     private User user;
 
+    public Post() {
+    }
 
     public Post(Long id, String title, String content, User user) {
         this.id = id;
