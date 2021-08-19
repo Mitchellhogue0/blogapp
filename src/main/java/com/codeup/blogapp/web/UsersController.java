@@ -16,9 +16,9 @@ public class UsersController {
     User user = new User(1L, "testy", "testy@test.com", "test123", null);
 
     List<Post> posts = new ArrayList<Post>() {{
-        add(new Post(1L, "new post", "this is some content", user));
-        add(new Post(2L, "newer post", "this is somemore content", user));
-        add(new Post(3L, "newest post", "this is somemost content", user));
+        add(new Post(1L, "new post", "this is some content", user, null));
+        add(new Post(2L, "newer post", "this is somemore content", user, null));
+        add(new Post(3L, "newest post", "this is somemost content", user, null));
     }};
 
 

@@ -17,27 +17,41 @@ export default function PostIndex(props) {
                         <span>Post Content: </span>
                     </div>
                     <input id="create-post-content" type="text">
-                <button id="create-btn">Submit</button>
                 </div>
+                <div>
+                <input id="create-post-cat" type="text">
+                </div>
+                <button id="create-btn">Submit</button>
             </form>
             <div class="post-container">
-                ${props.posts.map(post =>
+                
+            </div>
+        </main>
+    `;
+}
+
+function getPostsHtml (posts) {
+    return posts.map(post =>
         `
                <div class="post-object">
                 <label for="edit-title"></label>
                 <input type="text" class="edit-title" value="${post.title}" readonly>
-                <br>
-                <label for="edit-content"></label>
-                <input type="text" class="edit-content" value="${post.content}" readonly>
-                <p>Posted by: ${post.user.username}</p>
-                <button data-id="${post.id}" class="edit-btn">Edit</button>
-                <button data-id="${post.id}" class="delete-btn">Delete</button>
-                <br>
-                </div>
-                `).join('')}
+    <br>
+    <label for="edit-content"></label>
+        <input type="text" class="edit-content" value="${post.content}" readonly>
+            <p>Posted by: ${post.user.username}</p>
+            <button data-id="${post.id}" class="edit-btn">Edit</button>
+            <button data-id="${post.id}" class="delete-btn">Delete</button>
+            <br>
             </div>
-        </main>
-    `;
+            `).join('')
+}
+
+function getCategoriesComponents (categories) {
+
+    return categories.map(category => {
+        
+    })
 }
 
 export function PostsEvent() {
