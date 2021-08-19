@@ -32,6 +32,7 @@ export default function PostIndex(props) {
     `;
 }
 
+
 function getPostsHtml (posts) {
     return posts.map(post =>
         `
@@ -50,7 +51,8 @@ function getPostsHtml (posts) {
             `).join('')
 }
 
-function getCategoriesComponents (categories) {
+
+function getPostCategoriesComponents (categories) {
 
     return categories.map(category => {
         `
@@ -58,6 +60,7 @@ function getCategoriesComponents (categories) {
         `
     })
 }
+
 
 export function PostsEvent() {
     createEvent();
@@ -95,7 +98,6 @@ function createEvent() {
 }
 
 
-
 function editEvent() {
     $(".edit-btn").click(function () {
         console.log("edit event fired off");
@@ -107,6 +109,7 @@ function editEvent() {
         $(this).on("click", submitEditEvent)
     })
 }
+
 
 function submitEditEvent() {
     let post = {
@@ -133,6 +136,7 @@ function submitEditEvent() {
         createView("/posts");
     });
 }
+
 
 function deleteEvent(){
     $(".delete-btn").click(function (){
