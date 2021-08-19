@@ -7,24 +7,26 @@ export default function PostIndex(props) {
         </header>
         <main>
             <!--        CREATE FORM         -->
-            <form>
-                <div class="post">
+            <div class="post">
+                <form>
                     <div>
                         <span>Post Title: </span>
                     </div>
-                    <input id="create-post-title" type="text">
+                    <input class="create-input" id="create-post-title" type="text">
                     <div>
                         <span>Post Content: </span>
                     </div>
-                    <input id="create-post-content" type="text">
-                </div>
-                <div>
-                <input id="create-post-cat" type="text">
-                </div>
-                <button id="create-btn">Submit</button>
-            </form>
+                    <input class="create-input" id="create-post-content" type="text">
+                    <div>
+                        <span>Post Category Tags: </span>
+                    </div>
+                    <input class="create-input" id="create-post-cat" type="text">
+                    <br>
+                    <button id="create-btn">Submit</button>
+                </form>
+            </div>
             <div class="post-container">
-                
+                ${getPostsHtml(props.posts)}
             </div>
         </main>
     `;
@@ -33,16 +35,17 @@ export default function PostIndex(props) {
 function getPostsHtml (posts) {
     return posts.map(post =>
         `
-               <div class="post-object">
+            <div class="post-object">
                 <label for="edit-title"></label>
                 <input type="text" class="edit-title" value="${post.title}" readonly>
-    <br>
-    <label for="edit-content"></label>
-        <input type="text" class="edit-content" value="${post.content}" readonly>
-            <p>Posted by: ${post.user.username}</p>
-            <button data-id="${post.id}" class="edit-btn">Edit</button>
-            <button data-id="${post.id}" class="delete-btn">Delete</button>
-            <br>
+                <br>
+                <label for="edit-content"></label>
+                <input type="text" class="edit-content" value="${post.content}" readonly>
+
+                <p>Posted by: ${post.user.username}</p>
+                <button data-id="${post.id}" class="edit-btn">Edit</button>
+                <button data-id="${post.id}" class="delete-btn">Delete</button>
+                <br>
             </div>
             `).join('')
 }
@@ -50,7 +53,9 @@ function getPostsHtml (posts) {
 function getCategoriesComponents (categories) {
 
     return categories.map(category => {
-        
+        `
+        <span>#${category.name}</span>
+        `
     })
 }
 

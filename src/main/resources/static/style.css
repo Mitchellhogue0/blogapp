@@ -19,7 +19,7 @@
 .post {
     border: black 1px solid;
     margin: 15px 15px 15px 10px;
-    width: 70%;
+    width: 68%;
     background-color: white;
     padding: 1em;
 }
@@ -59,4 +59,12 @@ main {
 
 body {
     background-color: #fafafa;
+}
+
+.post-container {
+    width: 70%
+}
+
+.create-input {
+    width: 70%;
 }
