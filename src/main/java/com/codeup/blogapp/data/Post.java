@@ -17,6 +17,7 @@ public class Post {
     @Column(nullable = false)
     private String content;
 
+    @OneToOne
     private User user;
 
     private Collection<Category> categories;
