@@ -1,29 +1,34 @@
 package com.codeup.blogapp.data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.Collection;
 
 @Entity
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false)
     private String username;
 
-    @Column(nullable = false, length = 50)
+    @Email
+    @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false)
     private String password;
 
-
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Role role;
 
-    public enum Role {USER, ADMIN};
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
     private Collection<Post> posts;
+
+    public enum Role {USER, ADMIN};
 
 
     public User() {}

@@ -4,18 +4,20 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
+@Table(name = "categories")
 public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(nullable = false, length = 50)
     private String name;
 
+    @ManyToMany(mappedBy = "categories")
     private Collection<Post> posts;
 
-    public Category(long id, String name) {
+    public Category(Long id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -27,7 +29,7 @@ public class Category {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
