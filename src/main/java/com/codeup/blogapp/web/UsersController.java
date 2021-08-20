@@ -1,34 +1,26 @@
 package com.codeup.blogapp.web;
 
-import com.codeup.blogapp.data.Post;
 import com.codeup.blogapp.data.User;
+import com.codeup.blogapp.data.UsersRepository;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/users", headers = "Accept=application/json")
 public class UsersController {
 
-    User user = new User(1L, "testy", "testy@test.com", "test123", null);
+    private final UsersRepository usersRepository;
 
-    List<Post> posts = new ArrayList<Post>() {{
-        add(new Post(1L, "new post", "this is some content", user, null));
-        add(new Post(2L, "newer post", "this is somemore content", user, null));
-        add(new Post(3L, "newest post", "this is somemost content", user, null));
-    }};
-
+    public UsersController(UsersRepository usersRepository) {
+        this.usersRepository = usersRepository;
+    }
 
     @GetMapping
     private List<User> getUsers() {
-        return new ArrayList<User>() {{
-            add(new User(1L, "username1", "email1@email.com", "password1", posts));
-            add(new User(2L, "username2", "email2@email.com", "password2", posts));
-            add(new User(3L, "username3", "email3@email.com", "password3", posts));
-        }};
+        return usersRepository.findAll();
     }
 
     @PostMapping
@@ -38,6 +30,7 @@ public class UsersController {
         System.out.println(newUser.getEmail());
         System.out.println(newUser.getPassword());
         System.out.println(newUser.getRole());
+        usersRepository.save(newUser);
     }
 
     @PutMapping("{id}")
@@ -47,17 +40,17 @@ public class UsersController {
         System.out.println(user.getEmail());
         System.out.println(user.getPassword());
         System.out.println(user.getRole());
+        usersRepository.save(user);
     }
 
     @DeleteMapping("{id}")
     private void deleteUser(@PathVariable Long id) {
+        usersRepository.deleteById(id);
     }
 
     @GetMapping("{id}")
     private User findById(@PathVariable Long id) {
-        return getUsers().stream()
-                .filter(t ->
-                 id.equals(t.getId())).findFirst().orElse(null);
+        return usersRepository.getById(id);
     }
 
     @GetMapping("/findByUsername")

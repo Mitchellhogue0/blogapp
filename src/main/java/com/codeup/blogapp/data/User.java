@@ -25,7 +25,7 @@ public class User {
     @Column(nullable = false)
     private Role role;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
     private Collection<Post> posts;
 
     public enum Role {USER, ADMIN};
