@@ -17,7 +17,7 @@ public class CategoriesController {
         this.categoriesRepository = categoriesRepository;
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("{name}")
     private Category getPostsByCategory(@PathVariable String name) {
         return null;
     }
