@@ -1,4 +1,6 @@
-package com.codeup.blogapp.data;
+package com.codeup.blogapp.data.Users;
+
+import com.codeup.blogapp.data.Posts.Post;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;

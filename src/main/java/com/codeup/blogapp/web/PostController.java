@@ -1,14 +1,10 @@
 package com.codeup.blogapp.web;
 
-import com.codeup.blogapp.data.Category;
-import com.codeup.blogapp.data.Post;
-import com.codeup.blogapp.data.PostsRepository;
-import com.codeup.blogapp.data.User;
+import com.codeup.blogapp.data.Posts.Post;
+import com.codeup.blogapp.data.Posts.PostsRepository;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.PrimitiveIterator;
 
 @RestController
 @RequestMapping(value = "/api/posts", headers = "Accept=application/json")

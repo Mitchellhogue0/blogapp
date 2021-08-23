@@ -1,4 +1,4 @@
-package com.codeup.blogapp.data;
+package com.codeup.blogapp.data.Categories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
