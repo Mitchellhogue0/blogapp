@@ -2,6 +2,8 @@ package com.codeup.blogapp.data.Posts;
 
 import com.codeup.blogapp.data.Categories.Category;
 import com.codeup.blogapp.data.Users.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -21,9 +23,11 @@ public class Post {
     private String content;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "user_id")
     private User user;
 
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name="Post_category",

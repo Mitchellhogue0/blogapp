@@ -5,6 +5,7 @@ import com.codeup.blogapp.data.Posts.PostsRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/api/posts", headers = "Accept=application/json")
@@ -24,7 +25,7 @@ public class PostController {
 
     @GetMapping("{id}")
     private Post getPostById(@PathVariable Long id) {
-        return postsRepository.getById(id);
+        return postsRepository.findById(id).get();
     }
 
     @PostMapping

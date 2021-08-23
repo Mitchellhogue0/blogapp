@@ -1,6 +1,7 @@
 package com.codeup.blogapp.data.Users;
 
 import com.codeup.blogapp.data.Posts.Post;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -27,7 +28,8 @@ public class User {
     @Column(nullable = false)
     private Role role;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    @JsonManagedReference
+    @OneToMany(mappedBy = "user")
     private Collection<Post> posts;
 
     public enum Role {USER, ADMIN};

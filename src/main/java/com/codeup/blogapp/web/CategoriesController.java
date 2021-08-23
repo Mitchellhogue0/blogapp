@@ -2,10 +2,7 @@ package com.codeup.blogapp.web;
 
 import com.codeup.blogapp.data.Categories.CategoriesRepository;
 import com.codeup.blogapp.data.Categories.Category;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,8 +17,8 @@ public class CategoriesController {
         this.categoriesRepository = categoriesRepository;
     }
 
-    @GetMapping
-    private Category getPostsByCategory(@RequestParam String categoryName) {
+    @GetMapping("/{name}")
+    private Category getPostsByCategory(@PathVariable String name) {
         return null;
     }
 
