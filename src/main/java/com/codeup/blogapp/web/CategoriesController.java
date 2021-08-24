@@ -27,5 +27,9 @@ public class CategoriesController {
         return categoriesRepository.findAll();
     }
 
+    @DeleteMapping("{id}")
+    private void deleteCategory(@PathVariable Long id) {
+        categoriesRepository.deleteById(id);
+    }
 
 }
