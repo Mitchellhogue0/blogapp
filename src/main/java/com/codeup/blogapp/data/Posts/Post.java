@@ -24,7 +24,7 @@ public class Post {
     private String content;
 
     @ManyToOne
-    @JsonBackReference
+    @JsonIgnoreProperties({"posts", "password"})
     @JoinColumn(name = "user_id")
     private User user;
 
