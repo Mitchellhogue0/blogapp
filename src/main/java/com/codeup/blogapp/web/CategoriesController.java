@@ -33,6 +33,10 @@ public class CategoriesController {
         categoriesRepository.save(newCategory);
     }
 
+    @PutMapping("{id}")
+    private void updateCategory(@PathVariable Long id, @RequestBody Category category) {
+        categoriesRepository.save(category);
+    }
 
     @DeleteMapping("{id}")
     private void deleteCategory(@PathVariable Long id) {
