@@ -2,6 +2,7 @@ package com.codeup.blogapp.web;
 
 import com.codeup.blogapp.data.Categories.CategoriesRepository;
 import com.codeup.blogapp.data.Categories.Category;
+import com.codeup.blogapp.data.Posts.Post;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +27,12 @@ public class CategoriesController {
     private List<Category> getCategories(){
         return categoriesRepository.findAll();
     }
+
+    @PostMapping
+    private void createCategory(@RequestBody Category newCategory) {
+        categoriesRepository.save(newCategory);
+    }
+
 
     @DeleteMapping("{id}")
     private void deleteCategory(@PathVariable Long id) {
