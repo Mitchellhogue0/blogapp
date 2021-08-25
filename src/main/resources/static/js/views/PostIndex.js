@@ -43,7 +43,7 @@ function getPostsHtml (posts) {
                 <label for="edit-content"></label>
                 <input type="text" class="edit-content" value="${post.content}" readonly>
                 <div class="categories" >
-                ${getPostCategoriesComponents(post.category)}
+                ${getPostCategoriesComponents(post.categories)}
                 </div>
                 <p>Posted by: ${post.user.username}</p>
                 <button data-id="${post.id}" class="edit-btn">Edit</button>

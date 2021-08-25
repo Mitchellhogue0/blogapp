@@ -2,6 +2,7 @@
     line-height: 75px;
     font-size: 20px;
     border: none;
+    width: 100%;
 }
 
 .edit-title {
@@ -67,4 +68,8 @@ body {
 
 .create-input {
     width: 70%;
+}
+
+.categories{
+    color: darkblue;
 }
