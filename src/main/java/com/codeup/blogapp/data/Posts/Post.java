@@ -30,7 +30,7 @@ public class Post {
 
     @JsonIgnoreProperties("posts")
     @ManyToMany(fetch = FetchType.LAZY,
-            cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH}
+            cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}
     )
     @JoinTable(
             name = "post_category",

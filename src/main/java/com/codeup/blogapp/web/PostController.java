@@ -37,6 +37,7 @@ public class PostController {
         System.out.println(newPost.getTitle());
         System.out.println(newPost.getContent());
         postsRepository.save(newPost);
+
     }
 
     @PutMapping("{id}")
