@@ -2,7 +2,9 @@ export default function Home(props) {
     console.log("The frontend did it. HER FAULT");
     return `
         <header>
-            <h1>Home Page</h1>
+            <h1>Home</h1>
+            <br>
+            <hr>
         </header>
         <main>
             <div>

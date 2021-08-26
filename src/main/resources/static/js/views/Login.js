@@ -7,6 +7,8 @@ export default function Login(props) {
 </head>
 <body>
 <h1>Log In</h1>
+<br>
+<hr>
 
 <form id="login-form">
     <label for="username">Username</label>

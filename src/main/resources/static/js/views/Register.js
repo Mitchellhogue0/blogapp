@@ -7,7 +7,8 @@ export default function Login(props) {
 </head>
 <body>
 <h1>Register</h1>
-
+<br>
+<hr>
 <h3>Sign up today!</h3>
 <form id="sign-form">
      <label for="sign-email">Email</label>

@@ -1,7 +1,9 @@
 export default function About(props) {
     return `
         <header>
-            <h1>About Page</h1>
+            <h1>About</h1>
+            <br>
+            <hr>
         </header>
         <main>
             <div>

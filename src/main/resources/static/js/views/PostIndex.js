@@ -3,12 +3,15 @@ import createView from "../createView.js";
 export default function PostIndex(props) {
     return `
          <header>
-            <h1>Posts Page</h1>
+            <h1>Posts</h1>
+            <br>
+            <hr>
         </header>
         <main>
             <!--        CREATE FORM         -->
             <div class="post">
                 <form>
+                <h4>Write about something on your mind...</h4>
                     <div>
                         <span>Post Title: </span>
                     </div>
@@ -22,7 +25,7 @@ export default function PostIndex(props) {
                     </div>
                     <input class="create-input" id="create-post-cat" type="text">
                     <br>
-                    <button id="create-btn">Submit</button>
+                    <button id="create-btn" class="buttons">Submit</button>
                 </form>
             </div>
             <div class="post-container">
@@ -40,14 +43,16 @@ function getPostsHtml (posts) {
                 <label for="edit-title"></label>
                 <input type="text" class="edit-title" value="${post.title}" readonly>
                 <br>
+                <hr>
                 <label for="edit-content"></label>
                 <input type="text" class="edit-content" value="${post.content}" readonly>
                 <div class="categories" >
-                ${getPostCategoriesComponents(post.categories)}
+                    ${getPostCategoriesComponents(post.categories)}
+                    #${post.categories[0].name}
                 </div>
                 <p>Posted by: ${post.user.username}</p>
-                <button data-id="${post.id}" class="edit-btn">Edit</button>
-                <button data-id="${post.id}" class="delete-btn">Delete</button>
+                <button data-id="${post.id}" class="edit-btn buttons">Edit</button>
+                <button data-id="${post.id}" class="delete-btn buttons">Delete</button>
                 <br>
             </div>
             `).join('')

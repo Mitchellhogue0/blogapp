@@ -3,26 +3,41 @@
     font-size: 20px;
     border: none;
     width: 100%;
+    color: #FCE6CE;
+    background-color: #A99786
 }
 
 .edit-title {
     line-height: 75px;
     font-size: 30px;
     border: none;
+    color: #FCE6CE;
+    width: 100%;
+    background-color: #A99786
 }
 
 .post-object {
     border: black 1px solid;
     padding: 5px;
-    margin: 10px;
-    background-color: white;
+    margin: 25px;
+    background-color: #A99786;
+    color: #FCE6CE;
+    border-radius: 25px;
+    box-shadow: 10px 10px 8px #252b3c;
 }
+
+form {
+    color: #FCE6CE;
+}
+
 .post {
     border: black 1px solid;
     margin: 15px 15px 15px 10px;
-    width: 68%;
-    background-color: white;
-    padding: 1em;
+    width: 65%;
+    background-color: #A99786;
+    padding: 1em 1em 0 1em;
+    border-radius: 25px;
+    box-shadow: 10px 10px 8px #252b3c;
 }
 
 #nav {
@@ -30,21 +45,25 @@
     padding: 0;
     overflow: hidden;
     height: 50px;
-    background-color: #666;
+    background-color: #8b7352;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
 }
 
 .a-tags{
-    color: white;
+    color: #FCE6CE;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 .a-tags:hover {
-    background-color: #111;
+    border: solid #FCE6CE 2px;
+    color: #FCE6CE;
+    border-radius: 10px;
 }
 
 main {
@@ -59,7 +78,15 @@ main {
 }
 
 body {
-    background-color: #fafafa;
+    background-color: #3A3F60;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    color: #FCE6CE;
+    background-image:
+            linear-gradient(
+                    to top left,
+                    #3A3F60, #2a2e45
+            );
 }
 
 .post-container {
@@ -68,8 +95,27 @@ body {
 
 .create-input {
     width: 70%;
+    border-radius: 10px;
+    border: solid #8B7352 1px;
+    background-color: #A99786;
 }
 
 .categories{
-    color: darkblue;
+    color: #526A8B;
+}
+
+.buttons {
+    background-color: #8B7352;
+    margin: 1em 0 1em 0;
+    border-radius: 10px;
+    COLOR: #FCE6CE;
+}
+
+.buttons:hover {
+    border: 3px solid #252b3c;
+    border-radius: 10px;
+}
+
+h1{
+    margin-left: 1em;
 }

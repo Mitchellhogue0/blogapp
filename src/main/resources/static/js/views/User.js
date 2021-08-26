@@ -3,9 +3,13 @@ export default function user(props) {
 <html lang="en">
             <head>
                 <meta charset="UTF-8"/>
-                <title>Change Password</title>
+                <title>Profile</title>
             </head>
             <body>
+            
+           <h1>Profile</h1>
+           <br>
+           <hr>
                 <h1>Change Password</h1>
 
                 <form id="pass-form">
