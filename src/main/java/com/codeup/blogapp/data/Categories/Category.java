@@ -17,7 +17,7 @@ public class Category {
     private String name;
 
     @ManyToMany(fetch = FetchType.LAZY,
-            cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}
+            cascade = {CascadeType.DETACH, CascadeType.REFRESH}
     )
     @JoinTable(
             name = "post_category",

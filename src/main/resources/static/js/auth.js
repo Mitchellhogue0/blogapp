@@ -16,20 +16,7 @@ export function ChangePasswordEvent() {
             oldPassword: $("#pass-password-old").val(),
             newPassword: $("#pass-password-new").val()
         }
-        // let request1 = {
-        //     method: "GET",
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         "Content-Type": "application/json"
-        //     }
-        // };
-        //
-        // fetch(`http://localhost:8080/api/users/findByUsername?username=${obj.username}`, request1)
-        //     .then((response) => {
-        //         console.log(response.status)
-        //         createView("/");
-        //
-        //     });
+
 
         let request2 = {
             method: "PUT",
@@ -109,7 +96,7 @@ export default function addLoginEvent() {
  * This function should be used only after the user is logged in
  * @returns {{Authorization: string, "Content-Type": string}|{"Content-Type": string}}
  */
-export function getAuthBearerTokenHeader() {
+export function getHeaders() {
     const token = localStorage.getItem("access_token");
     return token
         ? {

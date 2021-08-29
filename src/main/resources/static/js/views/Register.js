@@ -1,4 +1,6 @@
-export default function Login(props) {
+import createView from "../createView.js";
+
+export default function Register(props) {
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +19,37 @@ export default function Login(props) {
     <input id="sign-username" name="username" type="text"/>
     <label for="sign-password">Password</label>
     <input id="sign-password" name="password" type="password"/>
-    <input id="sign-btn" type="submit" value="Sign Up"/>
+    <button id="sign-btn" type="button">Sign Up</button>
 </form></body>
 </html>`;
 
+}
+
+
+export function RegisterEvent() {
+    $("#sign-btn").click(function () {
+        let user = {
+            username: $("#sign-username").val(),
+            email: $("#sign-email").val(),
+            password: $("#sign-password").val()
+        };
+        console.log(user)
+
+        let request = {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        }
+
+        fetch("http://localhost:8080/api/users/create", request)
+            .then(res => {
+                console.log(res.status)
+                createView("/")
+            }).catch(error => {
+            console.log(error);
+            createView("/register");
+        });
+    })
 }

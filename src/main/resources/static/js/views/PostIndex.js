@@ -1,4 +1,5 @@
 import createView from "../createView.js";
+import {getHeaders} from "../auth.js";
 
 export default function PostIndex(props) {
     return `
@@ -23,7 +24,9 @@ export default function PostIndex(props) {
                     <div>
                         <span>Post Category Tags: </span>
                     </div>
-                    <input class="create-input" id="create-post-cat" type="text">
+                   <select name="category-selection" id="create-post-categories">
+                   ${props.categories.map(category => `<option value=${category.id}>${category.name}</option>`)}
+</select>
                     <br>
                     <button id="create-btn" class="buttons">Submit</button>
                 </form>
@@ -37,8 +40,10 @@ export default function PostIndex(props) {
 
 
 function getPostsHtml (posts) {
-    return posts.map(post =>
-        `
+    console.log(posts)
+    return posts.map(post => {
+        console.log(post.categories);
+        return  `
             <div class="post-object">
                 <label for="edit-title"></label>
                 <input type="text" class="edit-title" value="${post.title}" readonly>
@@ -48,21 +53,20 @@ function getPostsHtml (posts) {
                 <input type="text" class="edit-content" value="${post.content}" readonly>
                 <div class="categories" >
                     ${getPostCategoriesComponents(post.categories)}
-                    #${post.categories[0].name}
                 </div>
                 <p>Posted by: ${post.user.username}</p>
                 <button data-id="${post.id}" class="edit-btn buttons">Edit</button>
                 <button data-id="${post.id}" class="delete-btn buttons">Delete</button>
                 <br>
             </div>
-            `).join('')
+            ` }).join('')
 }
 
 
 function getPostCategoriesComponents (categories) {
 
     return categories.map(category => {
-        `
+       return  `
         <span>#${category.name}</span>
         `
     })
@@ -81,15 +85,14 @@ function createEvent() {
     $("#create-btn").click(function () {
         let post = {
             title: $("#create-post-title").val(),
-            content: $("#create-post-content").val()
+            content: $("#create-post-content").val(),
+            categories: $("#create-post-content").val()
         };
         console.log(post)
 
         let request = {
             method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: getHeaders(),
             body: JSON.stringify(post)
         }
 

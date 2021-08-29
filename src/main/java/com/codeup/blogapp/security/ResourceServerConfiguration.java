@@ -33,11 +33,8 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
                 .authorizeRequests()
-                .antMatchers("/**", "/api/posts", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
-            .and()
-                .authorizeRequests()
-                .antMatchers("/api/users/**").hasAnyAuthority("ADMIN", "USER")
-                .antMatchers("/api/**").authenticated()
+                .antMatchers("/api/users", "/api/posts").hasAnyAuthority("ADMIN", "USER")
+                .antMatchers("/**", "/api/users/create", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                 .anyRequest().authenticated()
             .and()
                 .exceptionHandling().authenticationEntryPoint(customAuthenticationEntryPoint).accessDeniedHandler(new CustomAccessDeniedHandler());
