@@ -60,14 +60,12 @@ public class UsersController {
 
     @GetMapping("/findByUsername")
     private User findByUsername(@RequestParam String username) {
-        return getUsers().stream().filter(t ->
-                username.equals(t.getUsername())).findFirst().orElse(null);
+        return usersRepository.findByUsername(username);
     }
 
     @GetMapping("/findByEmail")
     private User findByEmail(@RequestParam String email) {
-        return getUsers().stream().filter(t ->
-                email.equals(t.getEmail())).findFirst().orElse(null);
+        return usersRepository.findByEmail(email).get();
     }
 
     @PutMapping("{id}/updatePassword")

@@ -87,6 +87,7 @@ body {
                     to top left,
                     #3A3F60, #2a2e45
             );
+    background-attachment: fixed;
 }
 
 .post-container {
