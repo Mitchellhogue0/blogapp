@@ -69,7 +69,7 @@ public class UsersController {
     }
 
     @PutMapping("{id}/updatePassword")
-    private void updatePassword( @PathVariable Long id, @RequestParam(required = false) String oldPassword, @Valid @Size(min = 3) @RequestParam String newPassword) {
+    private void updatePassword(@PathVariable Long id, @RequestParam(required = false) String oldPassword, @Valid @Size(min = 3) @RequestParam String newPassword) {
         System.out.println(oldPassword);
         System.out.println(newPassword);
     }

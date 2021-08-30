@@ -39,11 +39,11 @@ export default function PostIndex(props) {
 }
 
 
-function getPostsHtml (posts) {
+function getPostsHtml(posts) {
     console.log(posts)
     return posts.map(post => {
         console.log(post.categories);
-        return  `
+        return `
             <div class="post-object">
                 <label for="edit-title"></label>
                 <input type="text" class="edit-title" value="${post.title}" readonly>
@@ -59,14 +59,15 @@ function getPostsHtml (posts) {
                 <button data-id="${post.id}" class="delete-btn buttons">Delete</button>
                 <br>
             </div>
-            ` }).join('')
+            `
+    }).join('')
 }
 
 
-function getPostCategoriesComponents (categories) {
+function getPostCategoriesComponents(categories) {
 
     return categories.map(category => {
-       return  `
+        return `
         <span>#${category.name}</span>
         `
     })
@@ -148,8 +149,8 @@ function submitEditEvent() {
 }
 
 
-function deleteEvent(){
-    $(".delete-btn").click(function (){
+function deleteEvent() {
+    $(".delete-btn").click(function () {
 
         let request = {
             method: "DELETE",

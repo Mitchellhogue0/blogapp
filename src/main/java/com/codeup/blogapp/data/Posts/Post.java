@@ -41,7 +41,8 @@ public class Post {
     )
     private Collection<Category> categories;
 
-    public Post() {}
+    public Post() {
+    }
 
     public Post(Long id, String title, String content, User user, Collection<Category> categories) {
         this.id = id;
@@ -88,7 +89,11 @@ public class Post {
         this.user = user;
     }
 
-    public Collection<Category> getCategories() { return categories; }
+    public Collection<Category> getCategories() {
+        return categories;
+    }
 
-    public void setCategories(Collection<Category> categories) { this.categories = categories; }
+    public void setCategories(Collection<Category> categories) {
+        this.categories = categories;
+    }
 }

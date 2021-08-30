@@ -22,7 +22,7 @@ public class PostController {
     private final UsersRepository usersRepository;
 
 
-    public PostController(PostsRepository postsRepository, EmailService emailService, UsersRepository usersRepository){
+    public PostController(PostsRepository postsRepository, EmailService emailService, UsersRepository usersRepository) {
         this.postsRepository = postsRepository;
         this.emailService = emailService;
         this.usersRepository = usersRepository;
@@ -31,7 +31,7 @@ public class PostController {
 
     @GetMapping
     private List<Post> getPosts() {
-       return postsRepository.findAll();
+        return postsRepository.findAll();
     }
 
     @GetMapping("{id}")

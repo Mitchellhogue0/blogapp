@@ -34,10 +34,13 @@ public class User {
     @OneToMany(mappedBy = "user")
     private Collection<Post> posts;
 
-    public enum Role {USER, ADMIN};
+    public enum Role {USER, ADMIN}
+
+    ;
 
 
-    public User() {}
+    public User() {
+    }
 
 
     public User(String username) {
