@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(value="/api/categories", headers = "accept=application/json")
+@RequestMapping(value = "/api/categories", headers = "accept=application/json")
 public class CategoriesController {
 
     private final CategoriesRepository categoriesRepository;
@@ -24,7 +24,7 @@ public class CategoriesController {
     }
 
     @GetMapping
-    private List<Category> getCategories(){
+    private List<Category> getCategories() {
         return categoriesRepository.findAll();
     }
 

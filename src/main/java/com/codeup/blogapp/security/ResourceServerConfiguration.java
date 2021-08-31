@@ -31,12 +31,12 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
                 .disable()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            .and()
+                .and()
                 .authorizeRequests()
                 .antMatchers("/api/users", "/api/posts").hasAnyAuthority("ADMIN", "USER")
                 .antMatchers("/**", "/api/users/create", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                 .anyRequest().authenticated()
-            .and()
+                .and()
                 .exceptionHandling().authenticationEntryPoint(customAuthenticationEntryPoint).accessDeniedHandler(new CustomAccessDeniedHandler());
     }
 
