@@ -4,7 +4,7 @@ import createView from './createView.js';
  * When the DOM loads, build the view given the current endpoint.
  */
 function loadViewOnPageRequest() {
-    window.addEventListener('DOMContentLoaded', function() {
+    window.addEventListener('DOMContentLoaded', function () {
         //TODO: Switched to location.pathname so the route would be accurate to current view
         createView(location.pathname);
     });

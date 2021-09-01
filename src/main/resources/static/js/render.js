@@ -15,7 +15,7 @@ export default function render(props, route) {
     app.innerHTML = `${Navbar(null)} ${route.returnView(props)}`;
 
     //
-    if (route.viewEvent){
+    if (route.viewEvent) {
         route.viewEvent();
     }
 }

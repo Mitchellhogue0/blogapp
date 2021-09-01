@@ -38,7 +38,7 @@ export function ChangePasswordEvent() {
 }
 
 
-export function RegisterEvent(){
+export function RegisterEvent() {
     $("#sign-btn").click(function () {
         let obj = {
             email: $("#sign-email").val(),
